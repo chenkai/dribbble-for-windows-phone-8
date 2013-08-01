@@ -15,6 +15,7 @@ using MoCommon;
 using MoCompontents.Compotents;
 
 using DribbbleClient.Common.UmengAnalysic;
+using DribbbleClient.Common.DynamicLoad;
 
 namespace DribbbleClient.ViewsModels
 {
@@ -76,15 +77,20 @@ namespace DribbbleClient.ViewsModels
             }
         }
 
+        public ActionCommand<object> MoreItemCommand { get; private set; }
+
+
         public CatalogShotsViewModel()
         {
             if (new LocalDeviceHelper().CheckNetWorkStatus())
                 GetCatalogShot(ShotCatalog.Popular, 1, 10);
             else
                 base.NetworkIsInvalid();
+
+           MoreItemCommand = new ActionCommand<object>(MoreItem);
         }
 
-        public void GetCatalogShot(Common.ShotCatalog catalogType, int pageIndex, int prePage)
+        public void GetCatalogShot(Common.ShotCatalog catalogType, int pageIndex, int prePage,bool isDynamicLoad=false)
         {
             //start process bar 
             LoadProcessBarHelper processBarHelper = new LoadProcessBarHelper();
@@ -109,15 +115,18 @@ namespace DribbbleClient.ViewsModels
                         switch (catalogType)
                         {
                             case ShotCatalog.Popular:
-                                _popularShotCol.Clear();
+                                if(!isDynamicLoad)
+                                   _popularShotCol.Clear();
                                 catalogShots.Shots.ForEach(queryEntity => { _popularShotCol.Add(queryEntity); });
                                 break;
                             case ShotCatalog.Everyone:
-                                _everyoneShotCol.Clear();
+                                if (!isDynamicLoad)
+                                    _everyoneShotCol.Clear();
                                 catalogShots.Shots.ForEach(queryEntity => { _everyoneShotCol.Add(queryEntity); });
                                 break;
                             case ShotCatalog.Debuts:
-                                _debutsShotCol.Clear();
+                                if (!isDynamicLoad)
+                                    _debutsShotCol.Clear();
                                 catalogShots.Shots.ForEach(queryEntity =>
                                 {
                                     #region get shot first author comment detail body
@@ -203,5 +212,31 @@ namespace DribbbleClient.ViewsModels
                 }
             };
         }
+
+        void MoreItem(object parameter)
+        {
+            if (parameter == null)
+                return;
+
+            if (new LocalDeviceHelper().CheckNetWorkStatus())
+            {
+                switch (parameter.ToString())
+                {
+                    case "popular":
+                        GetCatalogShot(ShotCatalog.Popular, 2, 10, true);
+                        break;
+                    case "everyone":
+                        GetCatalogShot(ShotCatalog.Everyone, 2, 10, true);
+                        break;
+                    case "debuts":
+                        GetCatalogShot(ShotCatalog.Debuts, 2, 10, true);
+                        break;
+                }              
+            }
+            else
+                base.NetworkIsInvalid();
+        }
+
+
     }
 }

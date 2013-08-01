@@ -18,7 +18,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <phone:Pivot Title="Dribbble"  x:Name="ShotDetail_PT" SelectionChanged="ShotDetail_PT_SelectionChanged">
             <phone:PivotItem Header="Detail">
-                <Grid Margin="10,0,0,0">
+                <Grid Margin="15,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -34,7 +34,7 @@
                         <TextBlock Text="{Binding Path=ShotDetail.Title}" FontSize="26" TextWrapping="Wrap"></TextBlock>
                     </Grid>
 
-                    <Image Grid.Row="1"  Source="{Binding Path=ShotDetail.Image_url}" Height="310" MouseLeftButtonUp="Image_MouseLeftButtonUp" x:Name="SourceImage_IM"></Image>
+                    <Image Grid.Row="1"  Source="{Binding Path=ShotDetail.Image_url}" Margin="-10,0,0,0" Height="310" MouseLeftButtonUp="Image_MouseLeftButtonUp" x:Name="SourceImage_IM"></Image>
 
                     <Grid Grid.Row="2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

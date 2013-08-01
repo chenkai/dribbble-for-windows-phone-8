@@ -7,6 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
     xmlns:uc="clr-namespace:DribbbleClient.UserControls"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:local="clr-namespace:DribbbleClient.Common.DynamicLoad"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -26,7 +28,7 @@
             <!--Pivot item one-->
             <phone:PivotItem Header="Popular">
                 <Grid Margin="10,0,0,0">
-                    <phone:LongListSelector ItemsSource="{Binding PopularShotCol}" x:Name="PopularLongSelector_LG"  >
+                    <phone:LongListSelector ItemsSource="{Binding PopularShotCol}" x:Name="PopularLongSelector_LG"   >
                         <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="0,10,0,0" MouseLeftButtonUp="ShotDetail_MouseLeftButtonUp" Tag="Popular">
@@ -34,7 +36,13 @@
                                 </StackPanel>
                             </DataTemplate>
                         </phone:LongListSelector.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <local:ScrollBarTrigger>
+                                <i:InvokeCommandAction Command="{Binding MoreItemCommand}" CommandParameter="popular"></i:InvokeCommandAction>
+                            </local:ScrollBarTrigger>
+                        </i:Interaction.Triggers>
                     </phone:LongListSelector>
+                
                 </Grid>
             </phone:PivotItem>
 
@@ -49,6 +57,11 @@
                                 </StackPanel>
                             </DataTemplate>
                         </phone:LongListSelector.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <local:ScrollBarTrigger>
+                                <i:InvokeCommandAction Command="{Binding MoreItemCommand}" CommandParameter="everyone"></i:InvokeCommandAction>
+                            </local:ScrollBarTrigger>
+                        </i:Interaction.Triggers>
                     </phone:LongListSelector>
                 </Grid>
             </phone:PivotItem>
@@ -63,7 +76,12 @@
                                     <uc:DebutDetailTemplate ></uc:DebutDetailTemplate>
                                 </StackPanel>
                             </DataTemplate>
-                        </phone:LongListSelector.ItemTemplate>    
+                        </phone:LongListSelector.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <local:ScrollBarTrigger>
+                                <i:InvokeCommandAction Command="{Binding MoreItemCommand}" CommandParameter="debuts"></i:InvokeCommandAction>
+                            </local:ScrollBarTrigger>
+                        </i:Interaction.Triggers>
                     </phone:LongListSelector>
                 </Grid>
             </phone:PivotItem>

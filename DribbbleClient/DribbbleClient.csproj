@@ -95,6 +95,11 @@
     </Compile>
     <Compile Include="Common\BasicRequestHelper.cs" />
     <Compile Include="Common\Catalog\CatalogShotHelper.cs" />
+    <Compile Include="Common\DynamicLoad\ActionCommand.cs" />
+    <Compile Include="Common\DynamicLoad\ElementExtension.cs" />
+    <Compile Include="Common\DynamicLoad\IActionCommand.cs" />
+    <Compile Include="Common\DynamicLoad\ScrollBarTrigger.cs" />
+    <Compile Include="Common\DynamicLoad\ScrollViewerTrigger.cs" />
     <Compile Include="Common\LoadProcessBarHelper.cs" />
     <Compile Include="Common\ShotRequestHelper.cs" />
     <Compile Include="Common\UmengAnalysic\UmengDataAnalysicHelper.cs" />
@@ -274,6 +279,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RestSharp.104.1\lib\sl4-wp71\RestSharp.WindowsPhone.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="UmengClassLibrary">
       <HintPath>..\Bins\UmengClassLibrary.dll</HintPath>
     </Reference>

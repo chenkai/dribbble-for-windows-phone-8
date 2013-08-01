@@ -12,6 +12,8 @@ using DribbbleClient.ViewsModels;
 using DribbbleClient.EntityModels;
 using System.Windows.Input;
 using DribbbleClient.Common.UmengAnalysic;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace DribbbleClient.Views
 {
@@ -116,5 +118,9 @@ namespace DribbbleClient.Views
             base.OnNavigatedFrom(e);
             new UmengRegisterEventHelper().RegisterUmengEventByType(AnalysicEventType.AppViewPageEnd, "CatalogShotsView");
         }
+
+ 
+
+      
     }
 }
