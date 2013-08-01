@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>SharpZipLib-WP7</id>
+    <version>0.86.0.518</version>
+    <title>SharpZipLib-WP7</title>
+    <authors>AndWeAccelerate</authors>
+    <owners>AndWeAccelerate</owners>
+    <licenseUrl>http://slsharpziplib.codeplex.com/license</licenseUrl>
+    <projectUrl>http://slsharpziplib.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This project is a complete (less AES cryptography) port version of the C# library SharpZiplib. The library has been converted to be used with Windows Phone 7</description>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>zip sharpziplib wp7</tags>
+  </metadata>
+</package>

@@ -1,0 +1,143 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="DribbbleClient.Views.UserProfileView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:DribbbleClient.UserControls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <phone:Pivot Title="Dribbble" x:Name="UserProfile_PT" SelectionChanged="UserProfile_PT_SelectionChanged">
+            
+            <phone:PivotItem Header="Profile">
+                <Grid Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Ellipse  Height="160" Width="160" HorizontalAlignment="Left"  Grid.Column="0">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding Path=PlayerDetail.Avatar_url}"></ImageBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        
+                        <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                            <TextBlock Text="{Binding Path=PlayerDetail.Name}" Margin="0,15,0,0" FontSize="28"  ></TextBlock>
+                            <TextBlock Text="{Binding Path=PlayerDetail.Location}" FontSize="24"></TextBlock>
+                        </StackPanel>
+                    </Grid>                    
+                    
+                    <Grid Grid.Row="1" Margin="0,10,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Grid.Row="0">
+                            <TextBlock Text="Twitter" FontSize="26"></TextBlock>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="@" FontSize="24"></TextBlock>
+                                <TextBlock Text="{Binding Path=PlayerDetail.Twitter_screen_name}" FontSize="24"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Row="1" Margin="0,10,0,0">
+                            <TextBlock Text="Blog" FontSize="26"></TextBlock>
+                            <TextBlock Text="{Binding Path=PlayerDetail.Website_url}" FontSize="24"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="2"  Margin="0,10,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel   Grid.Row="0" Margin="0,15,0,0">
+                            <TextBlock Text="{Binding Path=PlayerDetail.Following_count}" FontSize="28"></TextBlock>
+                            <TextBlock Text="Following" FontSize="24"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Margin="0,15,0,0">
+                            <TextBlock Text="{Binding Path=PlayerDetail.Followers_count}" FontSize="28"></TextBlock>
+                            <TextBlock Text="Followers" FontSize="24"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Margin="0,15,0,0">
+                            <TextBlock Text="{Binding Path=PlayerDetail.Shots_count}" FontSize="28"></TextBlock>
+                            <TextBlock Text="Shots" FontSize="24"></TextBlock>
+                        </StackPanel>
+
+                    </Grid>
+                </Grid>
+            </phone:PivotItem>
+            
+            <phone:PivotItem Header="Shots">
+                <Grid Margin="10,0,0,0">
+                    <phone:LongListSelector ItemsSource="{Binding UserRecentShotCol}" x:Name="UserShots_LP">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,20,0,0" MouseLeftButtonUp="StackPanel_MouseLeftButtonUp">
+                                    <uc:DebutDetailTemplate ></uc:DebutDetailTemplate>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+            
+            <phone:PivotItem Header="Following">
+                <Grid Margin="10,0,0,0">
+                    <phone:LongListSelector ItemsSource="{Binding UserFollowingCol}">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,15,0,0">
+                                    <uc:FriendsDetailTemplate Height="120" GetUserProfileUp="FriendsDetailTemplate_GetUserProfileUp"></uc:FriendsDetailTemplate>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+            
+            <phone:PivotItem Header="Followers">
+                <Grid Margin="10,0,0,0">
+                    <phone:LongListSelector ItemsSource="{Binding UserFollowersCol}">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,15,0,0">
+                                    <uc:FriendsDetailTemplate Height="120" GetUserProfileUp="FriendsDetailTemplate_GetUserProfileUp"></uc:FriendsDetailTemplate>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>
+    

@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="DribbbleClient.UserControls.FriendsDetailTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="120" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Ellipse  Height="100" Width="100" HorizontalAlignment="Left"  Grid.Column="0" MouseLeftButtonUp="Ellipse_MouseLeftButtonUp">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="{Binding Path=Avatar_url}"></ImageBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        
+        <Grid Grid.Column="1" Margin="10,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding Name}" FontSize="26" Margin="7,5,0,0" TextWrapping="Wrap" Grid.Row="0"></TextBlock>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
+                <Image Source="/Images/ViewIcon/Map.png"></Image>
+                <TextBlock Text="{Binding Location}" TextWrapping="Wrap" FontSize="24" Width="295" Margin="2,8,0,0"></TextBlock>
+                <Image Source="/Images/ViewIcon/Shot.png" Visibility="Collapsed"></Image>
+                <TextBlock Text="{Binding Shots_count}" FontSize="24" Margin="5,8,0,0" Visibility="Collapsed"></TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

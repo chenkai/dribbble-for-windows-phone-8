@@ -1,0 +1,93 @@
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\MoCommon.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\MoCommon.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\Coding4Fun.Toolkit.Audio.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\Coding4Fun.Toolkit.Controls.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\Coding4Fun.Toolkit.Net.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\Coding4Fun.Toolkit.Storage.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ICSharpCode.SharpZLib.Phone.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Controls.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Filtering.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Bmp.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Gif.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Png.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Utils.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\Newtonsoft.Json.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\PhoneCodeContractsAssemblies.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\RestSharp.WindowsPhone.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\SharpZipLib.WindowsPhone7.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\System.Net.Http.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\System.Net.Http.Extensions.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\System.Net.Http.Primitives.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ICSharpCode.SharpZLib.Phone.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Controls.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Controls.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Filtering.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Filtering.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Bmp.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Bmp.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Gif.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Gif.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Png.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Png.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Utils.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\ImageTools.Utils.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\Newtonsoft.Json.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\PhoneCodeContractsAssemblies.pdb
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\RestSharp.WindowsPhone.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\System.Net.Http.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\System.Net.Http.Extensions.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\Bin\Release\System.Net.Http.Primitives.xml
+D:\WorkSpace\wp8\MoWeather\MoCommon\obj\Release\MoCommon.csprojResolveAssemblyReference.cache
+D:\WorkSpace\wp8\MoWeather\MoCommon\obj\Release\Component\ProcessBar\HighPerformancProcessBar.g.cs
+D:\WorkSpace\wp8\MoWeather\MoCommon\obj\Release\MoCommon.g.resources
+D:\WorkSpace\wp8\MoWeather\MoCommon\obj\Release\MoCommon.dll
+D:\WorkSpace\wp8\MoWeather\MoCommon\obj\Release\MoCommon.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\MoCommon.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\MoCommon.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ICSharpCode.SharpZLib.Phone.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Controls.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Filtering.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Bmp.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Gif.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Png.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Utils.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\Microsoft.Expression.Controls.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\Microsoft.Phone.Controls.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\Newtonsoft.Json.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\PhoneCodeContractsAssemblies.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\RestSharp.WindowsPhone.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\SharpZipLib.WindowsPhone7.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\System.Net.Http.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\System.Net.Http.Extensions.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\System.Net.Http.Primitives.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\Microsoft.Expression.Drawing.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ICSharpCode.SharpZLib.Phone.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Controls.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Controls.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Filtering.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Filtering.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Bmp.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Bmp.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Gif.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Gif.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Png.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.IO.Png.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Utils.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\ImageTools.Utils.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\Newtonsoft.Json.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\PhoneCodeContractsAssemblies.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\RestSharp.WindowsPhone.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\System.Net.Http.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\System.Net.Http.Extensions.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\Bin\Release\System.Net.Http.Primitives.xml
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\obj\Release\Component\ProcessBar\HighPerformancProcessBar.g.cs
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\obj\Release\MoCommon.g.resources
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\obj\Release\MoCommon.dll
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\obj\Release\MoCommon.pdb
+H:\work project\MoJiWather\MoWeather\MoWeather\MoCommon\obj\Release\MoCommon.csprojResolveAssemblyReference.cache

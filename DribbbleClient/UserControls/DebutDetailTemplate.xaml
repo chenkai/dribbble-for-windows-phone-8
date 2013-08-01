@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="DribbbleClient.UserControls.DebutDetailTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="385" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding Title}" FontSize="26" Grid.Row="0"></TextBlock>
+        <TextBlock Text="{Binding Comment}" Grid.Row="1" FontSize="22" TextWrapping="Wrap"></TextBlock>
+        
+        <Grid Grid.Row="2" Margin="0,5,0,0">
+            <Grid  Canvas.ZIndex="0" Height="200">
+                <Grid.Background>
+                    <ImageBrush >
+                        <ImageBrush.ImageSource >
+                            <BitmapImage CreateOptions="DelayCreation"   UriSource="{Binding Image_400_url}"></BitmapImage>
+                        </ImageBrush.ImageSource>
+                    </ImageBrush>
+                </Grid.Background>
+            </Grid>
+            <Grid Canvas.ZIndex="1"  Background="Black" Opacity="0.7" Height="40" VerticalAlignment="Bottom"></Grid>
+            <Grid  Opacity="2"  Canvas.ZIndex="1" VerticalAlignment="Bottom">
+                <Grid.Resources>
+                    <Style TargetType="Image">
+                        <Setter Property="Height" Value="35"></Setter>
+                        <Setter Property="Width" Value="35"></Setter>
+                        <Setter Property="Margin" Value="0,0,0,0"></Setter>
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="0,0,15,0"></Setter>
+                        <Setter Property="FontSize" Value="24"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>              
+
+                <Grid Grid.Row="2">
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Image Source="/Images/ViewIcon/Like.png" ></Image>
+                        <TextBlock x:Name="ShotLikeCount_TB" Text="{Binding Likes_count}"></TextBlock>
+                        <Image Source="/Images/ViewIcon/Comment.png" ></Image>
+                        <TextBlock x:Name="ShotCommentCount_TB" Text="{Binding Comments_count}"></TextBlock>
+                        <Image Source="/Images/ViewIcon/View.png"></Image>
+                        <TextBlock x:Name="ShotViewCount_TB" Text="{Binding Views_count}"></TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="3" Margin="0,5,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Source="/Images/ViewIcon/Clock.png" Height="35" Width="35"></Image>
+                <TextBlock Text="{Binding FormatDate}" Margin="5,5,0,0" Foreground="#707070" FontSize="22"></TextBlock>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Image Source="{Binding Path=Player.Avatar_url}" Height="35"></Image>
+                <TextBlock Text="{Binding Path=Player.Name}" Margin="10,5,0,0" FontSize="22"></TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

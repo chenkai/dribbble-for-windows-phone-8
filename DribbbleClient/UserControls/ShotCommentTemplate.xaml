@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="DribbbleClient.UserControls.ShotCommentTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="240" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Ellipse Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="80" Width="80" HorizontalAlignment="Left" MouseLeftButtonUp="Ellipse_MouseLeftButtonUp">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="{Binding Path=Player.Avatar_url}"></ImageBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10,0,0,0">
+            <TextBlock Text="{Binding Path=Player.Name}" FontSize="26"></TextBlock>
+            <TextBlock Text="{Binding Body}" TextWrapping="Wrap" FontSize="24" Margin="0,5,0,0"></TextBlock>
+            
+        </StackPanel>
+        
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="80,5,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Source="/Images/ViewIcon/Like.png" Height="48"></Image>
+                <TextBlock Text="{Binding Likes_count}" FontSize="24" Margin="0,7,0,0"></TextBlock>
+            </StackPanel>
+
+            <TextBlock HorizontalAlignment="Right" Text="{Binding FormatDate}" FontSize="24" Margin="10,7,0,0"></TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>

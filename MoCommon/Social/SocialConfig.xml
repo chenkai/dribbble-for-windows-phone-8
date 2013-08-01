@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<social>
+  <tencent appkey="801367296" appsecret="1af45199c3f6fdbe94eeb9e0fabffc86" url="https://open.t.qq.com/cgi-bin/oauth2/" redirecturl="http://www.mojichina.com/" apiurl="http://open.t.qq.com/api/" oauthapiurl="https://open.t.qq.com/api/"></tencent>
+  <sina appkey="292355222" appsecret="289af37d30d5232096f2cf3ece2f09af" url="https://api.weibo.com/oauth2/" redirecturl="http://www.mojichina.com/" apiurl="https://api.weibo.com/2/" oauthapiurl="https://upload.api.weibo.com/2/"></sina>
+  <wechat appkey="wx11ea18f8f44b8411" appsecret="c749eb1dd00d1c9d8144df610f9e28bc" oauthapiurl="https://open.weixin.qq.com/" apiurl="https://api.weixin.qq.com/"  redirecturl="" url=""></wechat>
+</social>

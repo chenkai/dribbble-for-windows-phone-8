@@ -1,0 +1,89 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="DribbbleClient.Views.CatalogShotsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:uc="clr-namespace:DribbbleClient.UserControls"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot x:Name="Catalog_PT" SelectionChanged="Pivot_SelectionChanged">
+            <phone:Pivot.Title>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Dribbble"></TextBlock>
+                </StackPanel>
+            </phone:Pivot.Title>
+            <!--Pivot item one-->
+            <phone:PivotItem Header="Popular">
+                <Grid Margin="10,0,0,0">
+                    <phone:LongListSelector ItemsSource="{Binding PopularShotCol}" x:Name="PopularLongSelector_LG"  >
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,10,0,0" MouseLeftButtonUp="ShotDetail_MouseLeftButtonUp" Tag="Popular">
+                                    <uc:ShotDetailTemplate Height="200"></uc:ShotDetailTemplate>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="Everyone">
+                <Grid Margin="10,0,0,0">
+                    <phone:LongListSelector ItemsSource="{Binding EveryOneShotCol}" x:Name="EveryOneLongSelector_LG">
+                        <phone:LongListSelector.ItemTemplate >
+                            <DataTemplate>
+                                <StackPanel Margin="0,20,0,0" MouseLeftButtonUp="ShotDetail_MouseLeftButtonUp" Tag="EveryOne">
+                                    <uc:CombinShotDetailTemplate Height="120"></uc:CombinShotDetailTemplate>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item three-->
+            <phone:PivotItem Header="Debuts">
+                <Grid Margin="10,0,0,0">
+                    <phone:LongListSelector ItemsSource="{Binding DebutsShotCol}" x:Name="DebutsLongSelector_LG">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,20,0,0" MouseLeftButtonUp="ShotDetail_MouseLeftButtonUp" Tag="Debuts">
+                                    <uc:DebutDetailTemplate ></uc:DebutDetailTemplate>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>    
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item four-->
+            <phone:PivotItem Header="Designer">
+                <Grid Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="SearchDesigner_TB" Grid.Row="0" Foreground="#070707" Text="enter username" GotFocus="SearchDesigner_TB_GotFocus" KeyUp="SearchDesigner_TB_KeyUp"></TextBox>
+                    
+                    <StackPanel Grid.Row="1" x:Name="SearchResult_SP" Margin="0,10,0,0">
+                        <uc:FriendsDetailTemplate DataContext="{Binding Path=SearchUser}" ></uc:FriendsDetailTemplate>
+                        <TextBlock Text=""></TextBlock>
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,101 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="DribbbleClient.Views.ShotDetailView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:uc="clr-namespace:DribbbleClient.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <phone:Pivot Title="Dribbble"  x:Name="ShotDetail_PT" SelectionChanged="ShotDetail_PT_SelectionChanged">
+            <phone:PivotItem Header="Detail">
+                <Grid Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="0,0,0,5">
+                        <TextBlock Text="{Binding Path=ShotDetail.Title}" FontSize="26" TextWrapping="Wrap"></TextBlock>
+                    </Grid>
+
+                    <Image Grid.Row="1"  Source="{Binding Path=ShotDetail.Image_url}" Height="310" MouseLeftButtonUp="Image_MouseLeftButtonUp" x:Name="SourceImage_IM"></Image>
+
+                    <Grid Grid.Row="2">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Image Source="/Images/ViewIcon/Like.png" Height="48" Width="48"></Image>
+                            <TextBlock Text="{Binding Path=ShotDetail.Likes_count}" Margin="0,5,0,0" FontSize="24"></TextBlock>
+                            <Image Source="/Images/ViewIcon/Comment.png" Height="48" Width="48"></Image>
+                            <TextBlock Text="{Binding Path=ShotDetail.Comments_count}" Margin="0,5,0,0" FontSize="24"></TextBlock>
+                            <Image Source="/Images/ViewIcon/View.png" Height="48" Width="48"></Image>
+                            <TextBlock Text="{Binding Path=ShotDetail.Views_count}" Margin="0,5,0,0" FontSize="24"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Ellipse Grid.Row="0" Grid.Column="0" Height="100" Width="100" HorizontalAlignment="Left" MouseLeftButtonUp="UserProfile_MouseLeftButtonUp">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding Path=ShotDetail.Player.Avatar_url}"></ImageBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <Grid Grid.Row="0" Grid.Column="1" Margin="10,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Path=ShotDetail.Player.Name}" x:Name="UserName_TB" FontSize="26" Grid.Row="0"></TextBlock>
+
+                            <StackPanel Grid.Row="1" Orientation="Vertical" >
+                                <TextBlock Text="{Binding Path=ShotDetail.Player.Location}" HorizontalAlignment="Left" FontSize="24"></TextBlock>
+                                <TextBlock Text="{Binding Path=ShotDetail.FormatDate}" Margin="0,0,0,0" FontSize="24"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Grid.Row="4" Visibility="Collapsed">
+                        <TextBlock TextWrapping="Wrap" Text="I hate marking time, there's always a chance to try something new! Some experiments do pay off, what do you think about this one? "></TextBlock>
+                    </Grid>            
+
+                </Grid>
+            </phone:PivotItem>
+            
+            <phone:PivotItem Header="Comment">
+                <Grid Margin="10,0,0,0">
+                    <phone:LongListSelector ItemsSource="{Binding ShotCommentsCol}" x:Name="ShotComment_LP">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,15,0,0">
+                                    <uc:ShotCommentTemplate GetUserProfileUp="ShotCommentTemplate_GetUserProfileUp"></uc:ShotCommentTemplate>
+                                </StackPanel>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
