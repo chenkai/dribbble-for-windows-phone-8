@@ -83,7 +83,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Component\CustomerLiveTitleTemplateHelper.cs" />
     <Compile Include="Component\CustomLiveTitleHelper.cs" />
     <Compile Include="Component\DirectLocationHelper.cs" />
     <Compile Include="Component\CompressLibHelper.cs" />
@@ -124,6 +123,7 @@
   <ItemGroup>
     <Resource Include="Social\SocialConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Resource>
   </ItemGroup>
   <ItemGroup>

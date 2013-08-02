@@ -21,7 +21,7 @@ namespace MoCommon.Social
 {
     /// <summary>
     /// This helper build for social shareable component.
-    /// author:chenkai[moji] data:2013-5-31 11:45:19
+    /// author:chenkai data:2013-5-31 11:45:19
     /// </summary>
     public class SocialShareHelper : IShareable
     {

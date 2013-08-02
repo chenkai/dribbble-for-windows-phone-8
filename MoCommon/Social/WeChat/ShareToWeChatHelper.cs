@@ -14,7 +14,7 @@ namespace MoCommon.Social.WeChat
         {
             AuthorizeConfig oauthConfig = GetAuthorizeConfig(PlatformType.WeChat);
             ShareToWeChatFriendsHelper weChatHelper = new ShareToWeChatFriendsHelper();
-            string requestUrl = weChatHelper.GetWeChatOauthUrl(oauthConfig.OauthApiUrl, oauthConfig.AppKey, ResponseType.Code, "http://www.mojichina.com/");
+            string requestUrl = weChatHelper.GetWeChatOauthUrl(oauthConfig.OauthApiUrl, oauthConfig.AppKey, ResponseType.Code, "http://www.163.com/");
             return requestUrl;
         }
     }
