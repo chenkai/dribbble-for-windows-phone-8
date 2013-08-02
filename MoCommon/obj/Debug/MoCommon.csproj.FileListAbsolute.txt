@@ -144,4 +144,3 @@ H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCommon\obj\Debug\Co
 H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCommon\obj\Debug\MoCommon.g.resources
 H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCommon\obj\Debug\MoCommon.dll
 H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCommon\obj\Debug\MoCommon.pdb
-H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCommon\obj\Debug\MoCommon.csprojResolveAssemblyReference.cache
