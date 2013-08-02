@@ -18,6 +18,9 @@ namespace DribbbleClient.EntityModels
     {
         CatalogPopular,
         CatalogEveryOne,
-        CatalogDebuts
+        CatalogDebuts,
+        ProfileShots,
+        ProfileFollowing,
+        ProfileFollowers
     }
 }

@@ -146,6 +146,9 @@
     <Compile Include="Views\CatalogShotsView.xaml.cs">
       <DependentUpon>CatalogShotsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ConnectionWebView.xaml.cs">
+      <DependentUpon>ConnectionWebView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
     </Compile>
@@ -189,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CatalogShotsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConnectionWebView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

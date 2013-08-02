@@ -7,6 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="clr-namespace:DribbbleClient.UserControls"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:local="clr-namespace:DribbbleClient.Common.DynamicLoad"    
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -19,7 +21,7 @@
 
         <phone:Pivot Title="Dribbble" x:Name="UserProfile_PT" SelectionChanged="UserProfile_PT_SelectionChanged">
             
-            <phone:PivotItem Header="Profile">
+            <phone:PivotItem Header="Profile" x:Name="ProfilePivot_PT">
                 <Grid Margin="10,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -54,7 +56,7 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         
-                        <StackPanel Grid.Row="0">
+                        <StackPanel Grid.Row="0" x:Name="ConnectWeb_SP" Tag="twitter" MouseLeftButtonDown="ConnectWeb_SP_MouseLeftButtonDown">
                             <TextBlock Text="Twitter" FontSize="26"></TextBlock>
                             <StackPanel Orientation="Horizontal" >
                                 <TextBlock Text="@" FontSize="24"></TextBlock>
@@ -62,7 +64,7 @@
                             </StackPanel>
                         </StackPanel>
                         
-                        <StackPanel Grid.Row="1" Margin="0,10,0,0">
+                        <StackPanel Grid.Row="1" Margin="0,10,0,0" Tag="blog" MouseLeftButtonDown="ConnectWeb_SP_MouseLeftButtonDown">
                             <TextBlock Text="Blog" FontSize="26"></TextBlock>
                             <TextBlock Text="{Binding Path=PlayerDetail.Website_url}" FontSize="24"></TextBlock>
                         </StackPanel>
@@ -75,17 +77,17 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <StackPanel   Grid.Row="0" Margin="0,15,0,0">
+                        <StackPanel   Grid.Row="0" Margin="0,15,0,0" Tag="following" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
                             <TextBlock Text="{Binding Path=PlayerDetail.Following_count}" FontSize="28"></TextBlock>
                             <TextBlock Text="Following" FontSize="24"></TextBlock>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="1" Margin="0,15,0,0">
+                        <StackPanel Grid.Row="1" Margin="0,15,0,0" Tag="followers" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
                             <TextBlock Text="{Binding Path=PlayerDetail.Followers_count}" FontSize="28"></TextBlock>
                             <TextBlock Text="Followers" FontSize="24"></TextBlock>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="2" Margin="0,15,0,0">
+                        <StackPanel Grid.Row="2" Margin="0,15,0,0" Tag="shots" MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
                             <TextBlock Text="{Binding Path=PlayerDetail.Shots_count}" FontSize="28"></TextBlock>
                             <TextBlock Text="Shots" FontSize="24"></TextBlock>
                         </StackPanel>
@@ -94,7 +96,7 @@
                 </Grid>
             </phone:PivotItem>
             
-            <phone:PivotItem Header="Shots">
+            <phone:PivotItem Header="Shots" x:Name="ProfileShots_PT">
                 <Grid Margin="10,0,0,0">
                     <phone:LongListSelector ItemsSource="{Binding UserRecentShotCol}" x:Name="UserShots_LP">
                         <phone:LongListSelector.ItemTemplate>
@@ -104,12 +106,16 @@
                                 </StackPanel>
                             </DataTemplate>
                         </phone:LongListSelector.ItemTemplate>
-
+                        <i:Interaction.Triggers>
+                            <local:ScrollBarTrigger>
+                                <i:InvokeCommandAction Command="{Binding MoreItemCommand}" CommandParameter="shots"></i:InvokeCommandAction>
+                            </local:ScrollBarTrigger>
+                        </i:Interaction.Triggers>
                     </phone:LongListSelector>
                 </Grid>
             </phone:PivotItem>
             
-            <phone:PivotItem Header="Following">
+            <phone:PivotItem Header="Following" x:Name="ProfileFollowing_PT">
                 <Grid Margin="10,0,0,0">
                     <phone:LongListSelector ItemsSource="{Binding UserFollowingCol}">
                         <phone:LongListSelector.ItemTemplate>
@@ -119,11 +125,16 @@
                                 </StackPanel>
                             </DataTemplate>
                         </phone:LongListSelector.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <local:ScrollBarTrigger>
+                                <i:InvokeCommandAction Command="{Binding MoreItemCommand}" CommandParameter="following"></i:InvokeCommandAction>
+                            </local:ScrollBarTrigger>
+                        </i:Interaction.Triggers>
                     </phone:LongListSelector>
                 </Grid>
             </phone:PivotItem>
             
-            <phone:PivotItem Header="Followers">
+            <phone:PivotItem Header="Followers" x:Name="ProfileFollowers_PT">
                 <Grid Margin="10,0,0,0">
                     <phone:LongListSelector ItemsSource="{Binding UserFollowersCol}">
                         <phone:LongListSelector.ItemTemplate>
@@ -133,6 +144,11 @@
                                 </StackPanel>
                             </DataTemplate>
                         </phone:LongListSelector.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <local:ScrollBarTrigger>
+                                <i:InvokeCommandAction Command="{Binding MoreItemCommand}" CommandParameter="followers"></i:InvokeCommandAction>
+                            </local:ScrollBarTrigger>
+                        </i:Interaction.Triggers>
                     </phone:LongListSelector>
                 </Grid>
             </phone:PivotItem>

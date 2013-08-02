@@ -11,6 +11,7 @@ using Microsoft.Phone.Shell;
 using DribbbleClient.ViewsModels;
 using DribbbleClient.Common.UmengAnalysic;
 using DribbbleClient.EntityModels;
+using MoCommon;
 
 namespace DribbbleClient.Views
 {
@@ -65,19 +66,24 @@ namespace DribbbleClient.Views
             if (selectItem == null)
                 return;
 
+            int currentPage = 0;
+            int totalPage = 0;
             switch (selectItem.Header.ToString())
             {
                 case "Profile":
                     _userProfileViewModel.GetPlayerDetailById(_username);
                     break;
                 case "Shots":
-                    _userProfileViewModel.GetPlayerRecentShots(_username, 1, 10);
+                    currentPage = _userProfileViewModel.GetCurrentPageIndex(PagintaionType.ProfileShots);
+                   _userProfileViewModel.GetPlayerRecentShots(_username, currentPage + 1, 10);
                     break;
                 case "Following":
-                    _userProfileViewModel.GetPlayerFollowing(_username, 1, 10);
+                    currentPage = _userProfileViewModel.GetCurrentPageIndex(PagintaionType.ProfileFollowing);
+                    _userProfileViewModel.GetPlayerFollowing(_username, currentPage + 1, 10);
                     break;
                 case "Followers":
-                    _userProfileViewModel.GetPlayerFollowers(_username, 1, 10);
+                    currentPage = _userProfileViewModel.GetCurrentPageIndex(PagintaionType.ProfileFollowers);
+                    _userProfileViewModel.GetPlayerFollowers(_username, currentPage + 1, 10);
                     break;
             }
         }
@@ -98,6 +104,45 @@ namespace DribbbleClient.Views
                 return;
 
             this.NavigationService.Navigate(new Uri("/Views/ShotDetailView.xaml?shotid=" + selectShot.Id, UriKind.RelativeOrAbsolute));
+        }
+
+        private void StackPanel_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            StackPanel controlPanel = sender as StackPanel;
+            if (controlPanel == null)
+                return;
+
+            switch (controlPanel.Tag.ToString())
+            {
+                case "following":
+                    this.UserProfile_PT.SelectedItem = this.ProfileFollowing_PT;
+                    break;
+                case "followers":
+                    this.UserProfile_PT.SelectedItem = this.ProfileFollowers_PT;
+                    break;
+                case "shots":
+                    this.UserProfile_PT.SelectedItem = this.ProfileShots_PT;
+                    break;
+            }
+        }
+
+        private void ConnectWeb_SP_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            StackPanel controlPanel = sender as StackPanel;
+            if (controlPanel == null)
+                return;
+
+            switch (controlPanel.Tag.ToString())
+            {
+                case "blog":
+                    IsolatedStorageHelper.IsolatedStorageSaveObject("connecturl", this._userProfileViewModel.PlayerDetail.Website_url);
+                    this.NavigationService.Navigate(new Uri("/Views/ConnectionWebView.xaml?type=blog", UriKind.RelativeOrAbsolute));
+                    break;
+                case "twitter":
+                    IsolatedStorageHelper.IsolatedStorageSaveObject("connecturl", "http://twitter.com/" + this._userProfileViewModel.PlayerDetail.Twitter_screen_name);
+                    this.NavigationService.Navigate(new Uri("/Views/ConnectionWebView.xaml?type=twitter", UriKind.RelativeOrAbsolute));
+                    break;
+            }
         }
 
     

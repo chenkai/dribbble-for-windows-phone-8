@@ -68,3 +68,4 @@ H:\open source project\dribbble for wp\sourcecode\Dribbble\DribbbleClient\obj\De
 H:\open source project\dribbble for wp\sourcecode\Dribbble\DribbbleClient\obj\Debug\DribbbleClient.dll
 H:\open source project\dribbble for wp\sourcecode\Dribbble\DribbbleClient\obj\Debug\DribbbleClient.pdb
 H:\open source project\dribbble for wp\sourcecode\Dribbble\DribbbleClient\obj\Debug\XapCacheFile.xml
+H:\open source project\dribbble for wp\sourcecode\Dribbble\DribbbleClient\obj\Debug\Views\ConnectionWebView.g.cs
