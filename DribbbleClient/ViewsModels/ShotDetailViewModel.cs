@@ -11,6 +11,8 @@ using DribbbleClient.EntityModels.ShotDetail;
 using MoCommon;
 using MoCompontents.Compotents;
 using DribbbleClient.Common.UmengAnalysic;
+using DribbbleClient.Common.DynamicLoad;
+using DribbbleClient.EntityModels;
 
 namespace DribbbleClient.ViewsModels
 {
@@ -37,6 +39,7 @@ namespace DribbbleClient.ViewsModels
                 base.BindPropertyNotifyChanged("ShotDetail");
             }
         }
+        public ActionCommand<object> MoreItemCommand { get; private set; }
 
         public ShotDetailViewModel(int shotId)
         {
@@ -46,6 +49,8 @@ namespace DribbbleClient.ViewsModels
                     GetShotDetail(shotId);
                 else
                     base.NetworkIsInvalid();
+
+                MoreItemCommand = new ActionCommand<object>(MoreItem);
             }
             catch (Exception se)
             {
@@ -136,6 +141,17 @@ namespace DribbbleClient.ViewsModels
                         new ToastNotifyHelper().ShowCoding4FunToastNotify(errorMessage, "Tip");
                 }
             };
+        }
+
+        void MoreItem(object parameter)
+        {
+            int currentPage = 0;
+            if (new LocalDeviceHelper().CheckNetWorkStatus())
+            {
+                
+            }
+            else
+                base.NetworkIsInvalid();
         }
 
     }

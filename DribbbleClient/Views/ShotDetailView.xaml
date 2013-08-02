@@ -7,6 +7,8 @@
     xmlns:uc="clr-namespace:DribbbleClient.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:local="clr-namespace:DribbbleClient.Common.DynamicLoad"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -34,7 +36,7 @@
                         <TextBlock Text="{Binding Path=ShotDetail.Title}" FontSize="26" TextWrapping="Wrap"></TextBlock>
                     </Grid>
 
-                    <Image Grid.Row="1"  Source="{Binding Path=ShotDetail.Image_url}" Margin="-10,0,0,0" Height="310" MouseLeftButtonUp="Image_MouseLeftButtonUp" x:Name="SourceImage_IM"></Image>
+                    <Image Grid.Row="1" HorizontalAlignment="Left"  Source="{Binding Path=ShotDetail.Image_url}" Margin="0,0,0,0" Height="310" Width="450" MouseLeftButtonUp="Image_MouseLeftButtonUp" x:Name="SourceImage_IM"></Image>
 
                     <Grid Grid.Row="2">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -91,6 +93,11 @@
                                 </StackPanel>
                             </DataTemplate>
                         </phone:LongListSelector.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <local:ScrollBarTrigger>
+                                <i:InvokeCommandAction Command="{Binding MoreItemCommand}" CommandParameter="debuts"></i:InvokeCommandAction>
+                            </local:ScrollBarTrigger>
+                        </i:Interaction.Triggers>
                     </phone:LongListSelector>
                 </Grid>
             </phone:PivotItem>

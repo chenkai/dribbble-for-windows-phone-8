@@ -37,3 +37,23 @@ H:\work project\MoCommon\SourceCode\MoCompontents\obj\Debug\MoCompontents.csproj
 H:\work project\MoCommon\SourceCode\MoCompontents\obj\Debug\MoCompontents.dll
 H:\work project\MoCommon\SourceCode\MoCompontents\obj\Debug\MoCompontents.pdb
 H:\work project\MoCommon\SourceCode\MoCompontents\obj\Debug\XapCacheFile.xml
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\Assets\ApplicationIcon.png
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\Assets\Tiles\FlipCycleTileLarge.png
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\Assets\Tiles\FlipCycleTileSmall.png
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\Assets\Tiles\IconicTileMediumLarge.png
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\Assets\Tiles\IconicTileSmall.png
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\MoCompontents.dll
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\MoCompontents.pdb
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\AppManifest.xaml
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\MoCompontents_Debug_AnyCPU.xap
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\Bin\Debug\Coding4Fun.Toolkit.Controls.dll
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\App.g.cs
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\MainPage.g.cs
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\MoCompontents.g.resources
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\MoCompontents.Resources.AppResources.resources
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\MoCompontents.csproj.GenerateResource.Cache
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\MoCompontents.dll
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\MoCompontents.pdb
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\XapCacheFile.xml
+H:\open source project\dribbble for wp\sourcecode\Dribbble\MoCompontents\obj\Debug\MoCompontents.csprojResolveAssemblyReference.cache

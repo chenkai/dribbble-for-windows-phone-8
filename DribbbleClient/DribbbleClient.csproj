@@ -105,6 +105,7 @@
     <Compile Include="Common\UmengAnalysic\UmengDataAnalysicHelper.cs" />
     <Compile Include="Common\UmengAnalysic\UmengRegisterEventHelper.cs" />
     <Compile Include="Common\UserRequestHelper.cs" />
+    <Compile Include="EntityModels\PaginationInfo.cs" />
     <Compile Include="EntityModels\Player.cs" />
     <Compile Include="EntityModels\Shot.cs" />
     <Compile Include="EntityModels\ShotCatalog\CatalogShots.cs" />

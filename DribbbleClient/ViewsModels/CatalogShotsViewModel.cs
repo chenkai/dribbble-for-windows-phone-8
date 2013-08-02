@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Collections.ObjectModel;
+﻿using DribbbleClient.Common;
+using DribbbleClient.Common.Catalog;
+using DribbbleClient.Common.DynamicLoad;
+using DribbbleClient.EntityModels;
 using DribbbleClient.EntityModels.ShotCatalog;
 using DribbbleClient.EntityModels.ShotDetail;
-using DribbbleClient.EntityModels;
-using DribbbleClient.Common.Catalog;
-using DribbbleClient.Common;
-using System.Windows;
 using MoCommon;
 using MoCompontents.Compotents;
-
-using DribbbleClient.Common.UmengAnalysic;
-using DribbbleClient.Common.DynamicLoad;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace DribbbleClient.ViewsModels
 {
@@ -78,7 +71,7 @@ namespace DribbbleClient.ViewsModels
         }
 
         public ActionCommand<object> MoreItemCommand { get; private set; }
-
+        private List<PaginationInfo> PageControlList = null;
 
         public CatalogShotsViewModel()
         {
@@ -96,6 +89,9 @@ namespace DribbbleClient.ViewsModels
             LoadProcessBarHelper processBarHelper = new LoadProcessBarHelper();
             processBarHelper.StartProcessBar();
 
+            //pagination control
+            ControlPivotPage(catalogType, pageIndex, prePage);
+
             CatalogShotHelper catalogShotHelper = new CatalogShotHelper();
             catalogShotHelper.GetCatalogShots(catalogType, pageIndex, prePage);
             catalogShotHelper.AsyncCatalogShotsComplated += (responseData, ex) =>
@@ -109,6 +105,9 @@ namespace DribbbleClient.ViewsModels
                     CatalogShots catalogShots = null;
                     if (responseData != null)
                         catalogShots = responseData as CatalogShots;
+
+                    //update total page count
+                    UpateTotalPage(catalogType, catalogShots.Total);
 
                     if (catalogShots.Shots.Count > 0)
                     {
@@ -218,18 +217,22 @@ namespace DribbbleClient.ViewsModels
             if (parameter == null)
                 return;
 
+            int currentPage = 0;
             if (new LocalDeviceHelper().CheckNetWorkStatus())
             {
                 switch (parameter.ToString())
                 {
                     case "popular":
-                        GetCatalogShot(ShotCatalog.Popular, 2, 10, true);
+                        currentPage = GetCurrentPage(ShotCatalog.Popular);
+                        GetCatalogShot(ShotCatalog.Popular, currentPage+1, 10, true);
                         break;
                     case "everyone":
-                        GetCatalogShot(ShotCatalog.Everyone, 2, 10, true);
+                        currentPage = GetCurrentPage(ShotCatalog.Everyone);
+                        GetCatalogShot(ShotCatalog.Everyone, currentPage+1, 10, true);
                         break;
                     case "debuts":
-                        GetCatalogShot(ShotCatalog.Debuts, 2, 10, true);
+                        currentPage = GetCurrentPage(ShotCatalog.Debuts);
+                        GetCatalogShot(ShotCatalog.Debuts, currentPage+1, 10, true);
                         break;
                 }              
             }
@@ -237,6 +240,109 @@ namespace DribbbleClient.ViewsModels
                 base.NetworkIsInvalid();
         }
 
+        public void ControlPivotPage(Common.ShotCatalog catalogType, int pageIndex, int prePage)
+        {
+            if (this.PageControlList == null)
+                this.PageControlList = new List<EntityModels.PaginationInfo>();
 
+            PaginationInfo pageInfo = new EntityModels.PaginationInfo() { CurrentIndex = pageIndex, PrePageCount = prePage };
+            switch (catalogType)
+            {
+                #region format tiem add page infor
+                case Common.ShotCatalog.Popular:
+                    pageInfo.PageType = PagintaionType.CatalogPopular;
+                    break;
+                case Common.ShotCatalog.Everyone:
+                    pageInfo.PageType = PagintaionType.CatalogEveryOne;
+                    break;
+                case Common.ShotCatalog.Debuts:
+                    pageInfo.PageType = PagintaionType.CatalogDebuts;
+                    break;
+                #endregion
+            }
+
+            if (this.PageControlList.Count > 0)
+            {
+                PageControlList.ForEach(queryEntity =>
+                {
+                    if (queryEntity.PageType.Equals(pageInfo.PageType))
+                    {
+                        queryEntity.CurrentIndex = pageIndex;
+                        return;
+                    }else
+                        this.PageControlList.Add(pageInfo);
+                });
+            }
+            else
+                this.PageControlList.Add(pageInfo);
+        }
+
+        public void UpateTotalPage(Common.ShotCatalog catalogType, int totalCount)
+        {
+            if (this.PageControlList == null)
+                return;
+
+            PaginationInfo pageInfo=new EntityModels.PaginationInfo();
+            switch (catalogType)
+            {
+                #region format tiem add page infor
+                case Common.ShotCatalog.Popular:
+                    pageInfo.PageType = PagintaionType.CatalogPopular;
+                    break;
+                case Common.ShotCatalog.Everyone:
+                    pageInfo.PageType = PagintaionType.CatalogEveryOne;
+                    break;
+                case Common.ShotCatalog.Debuts:
+                    pageInfo.PageType = PagintaionType.CatalogDebuts;
+                    break;
+                #endregion
+            }
+
+            if (this.PageControlList.Count > 0)
+            {
+                this.PageControlList.ForEach(queryEntity => 
+                {
+                    if (queryEntity.PageType.Equals(pageInfo.PageType))
+                    {
+                        queryEntity.TotalPage = totalCount;
+                        return;
+                    }
+                });
+            }
+              
+        }
+
+        public int GetCurrentPage(ShotCatalog catalogType)
+        {
+            int currentPage = 0;
+            if (this.PageControlList == null)
+                return 0;
+
+            PaginationInfo pageInfo = new EntityModels.PaginationInfo();
+            switch (catalogType)
+            {
+                #region format tiem add page infor
+                case Common.ShotCatalog.Popular:
+                    pageInfo.PageType = PagintaionType.CatalogPopular;
+                    break;
+                case Common.ShotCatalog.Everyone:
+                    pageInfo.PageType = PagintaionType.CatalogEveryOne;
+                    break;
+                case Common.ShotCatalog.Debuts:
+                    pageInfo.PageType = PagintaionType.CatalogDebuts;
+                    break;
+                #endregion
+            }
+
+            this.PageControlList.ForEach(queryEntity => 
+            {
+                if (queryEntity.PageType.Equals(pageInfo.PageType))
+                {
+                    currentPage = queryEntity.CurrentIndex;
+                    return;
+                }
+            });
+            return currentPage;
+        }
     }
 }

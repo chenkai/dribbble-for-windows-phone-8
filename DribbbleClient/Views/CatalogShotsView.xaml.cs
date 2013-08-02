@@ -14,6 +14,7 @@ using System.Windows.Input;
 using DribbbleClient.Common.UmengAnalysic;
 using System.Windows.Input;
 using System.Windows.Media;
+using DribbbleClient.Common;
 
 namespace DribbbleClient.Views
 {
@@ -90,16 +91,20 @@ namespace DribbbleClient.Views
             if (selectedItem == null)
                 return;
 
+            int currentPage=0;
             switch (selectedItem.Header.ToString())
             {
                 case "Popular":
-                    _catalogShotViewModel.GetCatalogShot(Common.ShotCatalog.Popular, 0, 10);
+                    currentPage =this._catalogShotViewModel.GetCurrentPage(ShotCatalog.Popular);
+                    _catalogShotViewModel.GetCatalogShot(Common.ShotCatalog.Popular, currentPage+1, 10);
                     break;
                 case "Everyone":
-                    _catalogShotViewModel.GetCatalogShot(Common.ShotCatalog.Everyone, 0, 10);
+                    currentPage = this._catalogShotViewModel.GetCurrentPage(ShotCatalog.Everyone);
+                    _catalogShotViewModel.GetCatalogShot(Common.ShotCatalog.Everyone, currentPage+1, 10);
                     break;
                 case "Debuts":
-                    _catalogShotViewModel.GetCatalogShot(Common.ShotCatalog.Debuts, 0, 10);
+                    currentPage = this._catalogShotViewModel.GetCurrentPage(ShotCatalog.Debuts);
+                    _catalogShotViewModel.GetCatalogShot(Common.ShotCatalog.Debuts, currentPage+1, 10);
                     break;
                 case "Designer":
                     break;
