@@ -40,6 +40,8 @@ namespace DribbbleClient.ViewsModels
             }
         }
         public ActionCommand<object> MoreItemCommand { get; private set; }
+        private PaginationInfo CurrentPageInfo = null;
+        private int ShotId = 0;
 
         public ShotDetailViewModel(int shotId)
         {
@@ -50,6 +52,7 @@ namespace DribbbleClient.ViewsModels
                 else
                     base.NetworkIsInvalid();
 
+                this.ShotId = shotId;
                 MoreItemCommand = new ActionCommand<object>(MoreItem);
             }
             catch (Exception se)
@@ -98,7 +101,7 @@ namespace DribbbleClient.ViewsModels
             };
         }
 
-        public void GetShotDetailComments(int shotId,int pageIndex=0,int prePage=0)
+        public void GetShotDetailComments(int shotId,int pageIndex=0,int prePage=0,bool isDynamicLoad=false)
         {
             if (shotId == 0)
                 return;
@@ -106,6 +109,9 @@ namespace DribbbleClient.ViewsModels
             //start processbar
             LoadProcessBarHelper processBarHelper = new LoadProcessBarHelper();
             processBarHelper.StartProcessBar();
+
+            //register pagintion 
+            RegisterPaginationInfo(pageIndex, prePage);
 
             ShotRequestHelper shotHelper = new ShotRequestHelper();
             shotHelper.GetShotCommentById(shotId, pageIndex, prePage);
@@ -121,9 +127,14 @@ namespace DribbbleClient.ViewsModels
                     if (responseData != null)
                         shotComments = responseData as ShotComment;
 
+                    //update total pagecount
+                    UpateTotalPage(shotComments.Pages);
+
                     if (shotComments.Comments != null)
                     {
-                        _shotCommentsCol.Clear();
+                        if(!isDynamicLoad)
+                           _shotCommentsCol.Clear();
+
                         if (shotComments.Comments.Count > 0)
                             shotComments.Comments.ForEach(queryEntity =>
                             {
@@ -144,14 +155,42 @@ namespace DribbbleClient.ViewsModels
         }
 
         void MoreItem(object parameter)
-        {
-            int currentPage = 0;
+        {   
             if (new LocalDeviceHelper().CheckNetWorkStatus())
             {
-                
+                if(this.ShotId==0)
+                    return;
+
+                int currentIndex=GetCurrentPage();
+                if(currentIndex<CurrentPageInfo.TotalPage)
+                   GetShotDetailComments(ShotId, currentIndex + 1, 15,true);
             }
             else
                 base.NetworkIsInvalid();
+        }
+
+        public void RegisterPaginationInfo(int pageIndex,int prePage)
+        {
+            if (this.CurrentPageInfo == null)
+                CurrentPageInfo = new EntityModels.PaginationInfo();
+
+            this.CurrentPageInfo.PrePageCount = prePage;
+            this.CurrentPageInfo.CurrentIndex = pageIndex;
+        }
+
+        public void UpateTotalPage(int totalCount)
+        {
+            if (this.CurrentPageInfo == null)
+                return;
+
+            this.CurrentPageInfo.TotalPage = totalCount;
+        }
+
+        public int GetCurrentPage()
+        {
+            if (this.CurrentPageInfo == null)
+                return 0;
+            return this.CurrentPageInfo.CurrentIndex;
         }
 
     }

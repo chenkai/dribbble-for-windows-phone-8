@@ -107,7 +107,7 @@ namespace DribbbleClient.ViewsModels
                         catalogShots = responseData as CatalogShots;
 
                     //update total page count
-                    UpateTotalPage(catalogType, catalogShots.Total);
+                    UpateTotalPage(catalogType, catalogShots.Pages);
 
                     if (catalogShots.Shots.Count > 0)
                     {
@@ -223,7 +223,7 @@ namespace DribbbleClient.ViewsModels
                 switch (parameter.ToString())
                 {
                     case "popular":
-                        currentPage = GetCurrentPage(ShotCatalog.Popular);
+                        currentPage = GetCurrentPage(ShotCatalog.Popular);                        
                         GetCatalogShot(ShotCatalog.Popular, currentPage+1, 10, true);
                         break;
                     case "everyone":
